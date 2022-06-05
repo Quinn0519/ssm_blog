@@ -62,7 +62,7 @@ public final String rootPath = "A:\\SSM相关\\SSM项目\\SSMBlog\\data";
 
 <img src="https://raw.githubusercontent.com/Direct5dom/imageDB/main/202206021032680.png" style="zoom:50%;" />
 
-<img src="C:\Users\sixia\AppData\Roaming\Typora\typora-user-images\image-20220602103318441.png" alt="image-20220602103318441" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/Direct5dom/imageDB/main/img/202206051055408.png" style="zoom:50%;" />
 
 <img src="https://raw.githubusercontent.com/Direct5dom/imageDB/main/202206021033352.png" style="zoom:50%;" />
 
