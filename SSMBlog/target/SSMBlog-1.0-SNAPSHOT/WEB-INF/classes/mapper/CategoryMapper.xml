@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.SSMBlog.mapper.CategoryMapper">
+    <resultMap id="BaseResultMap" type="org.SSMBlog.entity.Category">
+        <id column="category_id" property="categoryId" jdbcType="INTEGER"/>
+        <result column="category_name" property="categoryName" jdbcType="VARCHAR"/>
+        <result column="category_icon" property="categoryIcon" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--定义SQL-->
+    <sql id="tb">category</sql>
+
+    <!--定义Column-->
+    <sql id="Base_Column_List">
+        category_id
+        , category_name, category_icon
+    </sql>
+
+    <!--添加分类-->
+    <insert id="insert" parameterType="org.SSMBlog.entity.Category" useGeneratedKeys="true" keyProperty="categoryId">
+        insert into
+        <include refid="tb"/>
+        (category_name, category_icon)
+        values (#{categoryName,jdbcType=VARCHAR},#{categoryIcon,jdbcType=VARCHAR})
+    </insert>
+
+    <!--删除分类-->
+    <delete id="deleteCategory" parameterType="Integer">
+        DELETE FROM
+        <include refid="tb"/>
+        WHERE category_id=#{value}
+    </delete>
+
+    <!--更新分类-->
+    <update id="update" parameterType="org.SSMBlog.entity.Category">
+        update
+        <include refid="tb"/>
+        <set>
+            <if test="categoryName != null">category_name = #{categoryName,jdbcType=VARCHAR},</if>
+            <if test="categoryIcon != null">category_icon = #{categoryIcon,jdbcType=VARCHAR},</if>
+        </set>
+        where category_id = #{categoryId,jdbcType=INTEGER}
+    </update>
+
+    <!--获得分类总数-->
+    <select id="countCategory" resultType="Integer">
+        SELECT COUNT(*) FROM
+        <include refid="tb"/>
+    </select>
+
+    <!--获得分类列表-->
+    <select id="listCategory" resultType="org.SSMBlog.entity.Category">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tb"/>
+        order by category_id asc
+    </select>
+
+    <!--根据分类id获得分类信息-->
+    <select id="getCategoryById" parameterType="Integer" resultType="org.SSMBlog.entity.Category">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tb"/>
+        WHERE
+        category.category_id=#{value}
+    </select>
+
+    <!--根据分类名查找分类-->
+    <select id="getCategoryByName" parameterType="String" resultType="org.SSMBlog.entity.Category">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tb"/>
+        WHERE category_name=#{value}
+        limit 1
+    </select>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.SSMBlog.mapper.TagMapper">
+    <resultMap id="BaseResultMap" type="org.SSMBlog.entity.Tag">
+        <id column="tag_id" property="tagId" jdbcType="INTEGER"/>
+        <result column="tag_name" property="tagName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--定义SQL-->
+    <sql id="tb">tag</sql>
+
+    <!--定义Column-->
+    <sql id="Base_Column_List">
+        tag_id
+        , tag_name
+    </sql>
+
+    <!--添加标签-->
+    <insert id="insert" parameterType="org.SSMBlog.entity.Tag" useGeneratedKeys="true" keyProperty="tagId">
+        insert into
+        <include refid="tb"/>
+        (tag_name)
+        values (#{tagName,jdbcType=VARCHAR})
+    </insert>
+
+    <!--根据标签ID删除-->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from
+        <include refid="tb"/>
+        where tag_id = #{tagId,jdbcType=INTEGER}
+    </delete>
+
+    <!--更新标签-->
+    <update id="update" parameterType="org.SSMBlog.entity.Tag">
+        update
+        <include refid="tb"/>
+        <set>
+            <if test="tagName != null">
+                tag_name = #{tagName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where tag_id = #{tagId,jdbcType=INTEGER}
+    </update>
+
+    <!--根据标签ID查询-->
+    <select id="getTagById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        <include refid="tb"/>
+        where tag_id = #{tagId,jdbcType=INTEGER}
+    </select>
+
+    <!--获得标签列表-->
+    <select id="listTag" resultType="org.SSMBlog.entity.Tag">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tb"/>
+    </select>
+
+    <!--获得标签总数-->
+    <select id="countTag" resultType="Integer">
+        SELECT COUNT(*) FROM
+        <include refid="tb"/>
+    </select>
+
+    <!--根据标签名获取标签-->
+    <select id="getTagByName" parameterType="String" resultType="org.SSMBlog.entity.Tag">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="tb"/>
+        WHERE tag_name=#{value}
+        limit 1
+    </select>
+</mapper>

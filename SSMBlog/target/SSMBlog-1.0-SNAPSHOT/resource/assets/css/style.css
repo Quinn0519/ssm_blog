@@ -1,0 +1,353 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    background: rgba(24, 28, 39, 1);
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    height: 1px;
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+header {
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    z-index: 10;
+}
+
+ul {
+    list-style: none;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+}
+
+.navbar-top, .navbar-bottom {
+    width: 100%;
+    height: fit-content;
+    color: rgb(200, 200, 200);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.navbar-top {
+    font-size: 120%;
+    background: rgba(82, 82, 82, 0);
+}
+
+.navbar-bottom {
+    font-size: 100%;
+    background: rgba(34, 44, 59, 0.685);
+}
+
+.user-login {
+    display: flex;
+    justify-content: center;
+    margin: 5px 10px 5px 10px;
+}
+
+.right-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 10px 5px;
+}
+
+nav a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    font-weight: bolder
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0;
+    padding-left: 0;
+}
+
+nav ul li {
+    list-style: none;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100vh;
+    background: url(/img/content-img.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.caret::after {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 5px;
+    margin-bottom: -2px;
+    margin-left: -2px;
+    background-color: rgb(255, 255, 255);
+    animation: blink-caret .5s step-end infinite;
+}
+
+.typing {
+    width: auto;
+    height: 100%;
+    padding-top: 25%;
+    padding-bottom: 20%;
+    text-align: center;
+}
+
+.typing-text {
+    width: auto;
+    height: 100%;
+    font-size: 45px;
+    color: rgb(200, 200, 200);
+    text-align: center;
+}
+
+@keyframes blink-caret {
+    50% {
+        opacity: 0;
+    }
+}
+
+.typing-img {
+    width: auto;
+    height: 50%;
+    padding-top: 20%;
+}
+
+.typing-img-01 {
+    display: inline-block;
+    animation: myfirst 1s infinite;
+}
+
+@keyframes myfirst {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, -10px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+.main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    z-index: -10;
+}
+
+.main-inner {
+    width: 80%;
+    height: auto;
+    background: rgba(37, 45, 56, 1);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    padding: 3% 5% 3% 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-left {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-right {
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog, .widget {
+    width: 95%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #808080;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
+    color: rgb(200, 200, 200);
+}
+
+.blog {
+    padding: 15px 0px 15px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.widget {
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-title {
+    margin: 0 0 10px 0;
+}
+
+.blog-article {
+    width: 70%;
+    height: 100%;
+    margin: 0 0 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.thumbnail {
+    width: 340px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+
+.article-top {
+    height: fit-content;
+    font-size: 20px;
+    margin: 0;
+    padding: 0px 10px 0px 0px;
+    color: var(--link-color);
+}
+
+.article-top a:link {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.article-top a:visited {
+    text-decoration: underline;
+    color: var(--link-color);
+    transition: all 0.5s ease-out;
+
+}
+
+.article-top a:active {
+    text-decoration: underline;
+    color: var(--link-color);
+}
+
+.article-top a:hover {
+    text-decoration: underline;
+    color: var(--link-color);
+}
+
+.article-middle {
+    height: fit-content;
+    margin: 0;
+    padding: 0px 10px 0px 0px;
+}
+
+.article-bottom {
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    float: right;
+    bottom: 0;
+}
+
+.article-bottom .date {
+    margin: 0;
+    padding: 5.4px 0px 5.4px 0px;
+}
+
+.feed a {
+    height: 40px;
+    width: 40px;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 3px;
+}
+
+
+.tagcloud a, .article-bottom a {
+    height: fit-content;
+    padding: 3px;
+    margin-right: 0;
+    transition: 0.3s;
+}
+
+.feed a:link, .tagcloud a:link, .article-bottom a:link {
+    color: #ffffff;
+    background: rgb(0, 0, 0);
+}
+
+.feed a:visited, .tagcloud a:visited, .article-bottom a:visited {
+    color: #ffffff;
+    background: rgb(0, 0, 0);
+}
+
+.feed a:hover, .tagcloud a:hover, .article-bottom a:hover {
+    color: #000000;
+    background: rgb(255, 255, 255);
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    color: rgb(255, 255, 255);
+    background: rgba(24, 28, 39, 1);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.calendar {
+    width: 20%;
+    height: 20%;
+    background: rgba(37, 45, 56, 1);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+}
